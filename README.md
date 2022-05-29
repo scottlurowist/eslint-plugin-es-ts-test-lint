@@ -1,3 +1,3 @@
 # eslint-plugin-es-ts-test-lint
 
-An eslint plugin that looks for bad testing practices in JavaScript tests.
+An eslint plugin that looks for bad testing practices in JavaScript tests. This project currently only lints JS code but in the future it will lint both JS and TS code.
