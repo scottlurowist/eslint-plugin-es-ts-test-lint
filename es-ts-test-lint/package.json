@@ -1,0 +1,12 @@
+{
+  "name": "eslint-plugin-es-ts-test-lint",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": { },
+  "author": "Scott Lurowist",
+  "license": "ISC"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "es-ts-test-lint-proj",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src es-ts-test-lint"
+  },
+  "author": "Scott Lurowist",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.26.0",
+    "@typescript-eslint/parser": "^5.26.0",
+    "eslint": "^8.16.0",
+    "eslint-plugin-es-ts-test-lint": "file:es-ts-test-lint",
+    "typescript": "^4.7.2"
+  }
+}
