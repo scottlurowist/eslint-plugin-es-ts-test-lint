@@ -16,7 +16,7 @@
 
 module.exports = {
 	meta: {
-		type: "layout",
+		type: "problem",
 
 		docs: {
 			description: "disallow try-catch-finally in unit tests",
@@ -82,19 +82,19 @@ module.exports = {
 		//--------------------------------------------------------------------------
         
 		function isTestFile(fileName) {
-            const lower = fileName.toLowerCase();
+			const lower = fileName.toLowerCase();
 
-            const testRegExPattern = /(\.spec\.js|\.test\.js)$/;
+			const testRegExPattern = /(\.spec\.js|\.specs\.js|\.test\.js|\.tests\.js)$/;
 
-            return testRegExPattern.test(lower);
-		};
+			return testRegExPattern.test(lower);
+		}
 
 		//--------------------------------------------------------------------------
 		// Public API
 		//--------------------------------------------------------------------------
 		return {
 			TryStatement(node) {
-                const result = isTestFile(fileName);
+				// const result = isTestFile(fileName);
 
 				if (isTestFile(fileName)) {
 					context.report(node, "No try-catch-finally logic in tests");
