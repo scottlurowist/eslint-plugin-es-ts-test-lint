@@ -21,72 +21,24 @@ module.exports = {
 		docs: {
 			description: "disallow try-catch-finally in unit tests",
 			recommended: false,
-			url: "https://eslint.org/docs/rules/semi"
+			url: ""
 		},
 
-		fixable: "code",
-
-		schema: {
-			anyOf: [
-				{
-					type: "array",
-					items: [
-						{
-							enum: ["never"]
-						},
-						{
-							type: "object",
-							properties: {
-								beforeStatementContinuationChars: {
-									enum: ["always", "any", "never"]
-								}
-							},
-							additionalProperties: false
-						}
-					],
-					minItems: 0,
-					maxItems: 2
-				},
-				{
-					type: "array",
-					items: [
-						{
-							enum: ["always"]
-						},
-						{
-							type: "object",
-							properties: {
-								omitLastInOneLineBlock: { type: "boolean" }
-							},
-							additionalProperties: false
-						}
-					],
-					minItems: 0,
-					maxItems: 2
-				}
-			]
-		},
-
-		messages: {
-			missingSemi: "Missing semicolon.",
-			extraSemi: "Extra semicolon."
-		}
+		schema: {},
 	},
 
 	create: function(context) {
 
-		const fileName = context.getFilename();
+		// const fileName = context.getFilename();
 
 		//--------------------------------------------------------------------------
 		// Helpers
 		//--------------------------------------------------------------------------
         
-		function isTestFile(fileName) {
-			const lower = fileName.toLowerCase();
-
+		function thisFileIsATestFile() {
 			const testRegExPattern = /(\.spec\.js|\.specs\.js|\.test\.js|\.tests\.js)$/;
 
-			return testRegExPattern.test(lower);
+			return testRegExPattern.test(context.getFilename().toLowerCase());
 		}
 
 		//--------------------------------------------------------------------------
@@ -94,13 +46,10 @@ module.exports = {
 		//--------------------------------------------------------------------------
 		return {
 			TryStatement(node) {
-				// const result = isTestFile(fileName);
-
-				if (isTestFile(fileName)) {
+				if (thisFileIsATestFile()) {
 					context.report(node, "No try-catch-finally logic in tests");
 				} 
 			}                 
-		};
- 
+		}; 
 	}
 };
