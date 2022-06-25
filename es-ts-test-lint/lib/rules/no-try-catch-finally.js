@@ -35,7 +35,7 @@ module.exports = {
 		// Helpers
 		//--------------------------------------------------------------------------
         
-		function thisFileIsATestFile() {
+		function isThisFileATestFile() {
 			const testRegExPattern = /(\.spec\.js|\.specs\.js|\.test\.js|\.tests\.js)$/;
 
 			return testRegExPattern.test(context.getFilename().toLowerCase());
@@ -46,7 +46,7 @@ module.exports = {
 		//--------------------------------------------------------------------------
 		return {
 			TryStatement(node) {
-				if (thisFileIsATestFile()) {
+				if (isThisFileATestFile()) {
 					context.report(node, "No try-catch-finally logic in tests");
 				} 
 			}                 
