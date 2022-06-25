@@ -25,8 +25,8 @@
         "semi": [
             "error",
             "always"
-        ],        
-        "es-ts-test-lint/no-tcf-logic": "error"
-                
+        ],
+        "es-ts-test-lint/no-try-catch-finally": "error",
+        "es-ts-test-lint/no-magic-numbers": "error"        
     }
 }
